@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div id="main"><img src="1.jpg" alt="" height="100px"width="100px" id="first"></div>
+    <button id="pre">◀</button>
+    <div style="display: inline-block;"><span id="num">1</span></div>
+    <button id="next">▶</button>
+    </div>
+    <div id="allimages">
+    <img id="j1" alt="" src="1.jpg" height="100px"width="100px">
+    <img id="j2" src="2.jpg" alt="" height="100px"width="100px">
+    <img id="j3" src="3.jpg" alt="" height="100px"width="100px">
+    <img id="j4" src="4.jpg" alt="" height="100px"width="100px">
+    </div>
+
+<script>
+let index=0;
+
+let numbr=1;
+let array=["5.jpg","2.jpg","3.jpg","4.jpg"];
+
+function nextimage(){
+    index=1;
+    if(index<array.length){
+        document.getElementById("first").src=array[index];
+        index++;
+        document.getElementById("num").innerText=numbr;
+        numbr++;
+    }
+}
+let next=document.getElementById("next");
+next.addEventListener("click",nextimage);
+
+function previmage(){
+
+    if(index>=0){
+    index--;
+    numbr--;
+        if(numbr<0){
+    numbr=0
+        }
+    document.getElementById("first").src=array[index];
+    document.getElementById("num").innerText=numbr;
+    }
+}
+let prev=document.getElementById("pre");
+prev.addEventListener("click",previmage);
+
+</script>
+
+<hr>
+
+<!-- second way  -->
+
+
+
+<img  src="1.jpg" alt=""  id="changediv" style="width: 10rem;height: 10rem;border: 2px solid black;margin: 20px auto;"> 
+<div> <span id="number"> </span>/4</div>
+<button id="next"> next</button>
+<button id="previos"> previose</button>
+<div id="imagediv" style="background-color: aquamarine;display: flex;justify-content: space-evenly;padding: 10px;width: 50%; margin-top: 150px;">
+<img id="i1" src="1.jpg" alt="" style="width: 10rem;height: 10rem;">
+<img id="i2" src="2.jpg" alt="" style="width: 10rem;height: 10rem;">
+<img id="i3" src="3.jpg" alt="" style="width: 10rem;height: 10rem;">
+<img id="i4" src="4.jpg"  alt="" style="width: 10rem;height: 10rem;">
+
+</div>
+
+<script>
+ let indexx = 1 ;
+let list = ["1.jpg","2.jpg","3.jpg","4.jpg"];
+let nextbuttn = document.getElementById("next");
+let previosebutton = document.getElementById("previos");
+ let  number1 = 1 ;
+ document.getElementById("number").innerText = number1 ;
+ 
+ let image1 = document.getElementById("i1");
+ let image2 = document.getElementById("i2");
+ let image3 = document.getElementById("i3");
+ let image4 = document.getElementById("i4");
+ let array1 = [image1,image2,image3,image4];
+
+function changeimage(){
+    if(indexx <list.length){
+    document.getElementById("changediv").src = list[indexx];
+    indexx ++ ;
+    number1++;
+    document.getElementById("number").innerText = number1 ;
+    array1[i].style.opacity = "0.5";
+    for(let i= 1 ; i <array1.length ; i++){
+    
+    if(i === indexx){
+        array1[i].style.opacity = "1";
+    }else{
+        array1[i].style.opacity = "0.5"; 
+    }
+}
+}else if(indexx>list.length){
+
+indexx = stop ;
+document.getElementById("changediv").src = list[indexx];
+number1.innerText = number1;
+number1 = stop;
+}
+};
+nextbuttn.addEventListener('click',changeimage);
+
+let index2 = list.length-1;
+function returnimage(){
+    if(index2 >= 0){
+document.getElementById("changediv").src = list[index2];
+index2 -- ;
+number1--;
+ document.getElementById("number").innerText = number1 ;
+ 
+    } else{
+index2 = stop;
+document.getElementById("changediv").src = list[0];
+// alert("wrong");
+number = 0;
+ document.getElementById("number").innerText = number ;
+}
+};
+previosebutton.addEventListener('click',returnimage);
+
+</script>
+</body>
+</html>
